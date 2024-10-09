@@ -1,6 +1,0 @@
-/gpt4o_mini_chatbot
-│
-├── .env
-├── requirements.txt
-├── README.md
-└── chatbot.py
