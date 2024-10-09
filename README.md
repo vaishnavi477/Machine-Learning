@@ -85,7 +85,7 @@ stream = openai.chat.completions.create(
 )
 ```
 ## Contact
-For any queries, feel free to reach out to the project maintainer at vpatil29306@student.sfbu.edu.
+For any queries, feel free to reach out to the project maintainer at vaishnavigpatil21640@gmail.com
 
 ## Screenshot of execution results
 
