@@ -1,0 +1,9 @@
+### Instructions for Running the Project
+
+1. **Clone the repository**:
+
+   If you haven't created the project folder yet, you can do so and copy the above files into it.
+
+2. **Follow the steps in the README to set up your virtual environment and run the application**.
+
+This complete setup should get your chatbot project running smoothly! If you have any questions or need further modifications, feel free to ask.
