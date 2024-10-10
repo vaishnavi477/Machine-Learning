@@ -1,4 +1,4 @@
-# README: GPT-4o-mini Chatbot Application with Streamlit:
+# README: GPT-4o-mini Chatbot Application with Streamlit
 
 ## Introduction
 This project is a simple chatbot interface built using Streamlit and OpenAI's GPT-4 API. The chatbot takes user input, sends it to the GPT-4o-mini model, and displays the model’s response in a web-based interface. The interface includes a custom-styled background using CSS for a visually appealing shaded blue gradient.
@@ -38,6 +38,11 @@ Before running the application, ensure you have the following:
    OPENAI_API_KEY=your_openai_api_key # Replace with your api key
    ```
 
+5. Run the `.env` file:
+   ```bash
+   source /.env
+   ```
+   
 ## Usage
 
 1. Run the Streamlit app:
@@ -75,9 +80,9 @@ st.markdown(
 ```
 
 ### OpenAI Model Configuration
-By default, the app uses the `gpt-4o-mini` model. To change it to another model or adjust other parameters like `temperature`, modify the `openai.chat.completions.create()` call:
+By default, the app uses the `gpt-4o-mini` model. To change it to another model or adjust other parameters like `temperature`, modify the `openai.ChatCompletion.create()` call:
 ```python
-stream = openai.chat.completions.create(
+stream = openai.ChatCompletion.create(
     model="gpt-4o-mini",
     messages=[...],
     temperature=0,  # Adjust temperature for more or less creative responses
@@ -85,10 +90,10 @@ stream = openai.chat.completions.create(
 )
 ```
 ## Contact
-For any queries, feel free to reach out to the project maintainer at vpatil29306@student.sfbu.edu.
+For any queries, feel free to reach out to the project maintainer at vaishnavigpatil21640@gmail.com.
 
 ## Screenshot of execution results
 
 ![alt text](Execution_1.png)
 ![alt text](Execution_2.png)
-![alt text](image.png)
+![alt text](Execution_3.png)
