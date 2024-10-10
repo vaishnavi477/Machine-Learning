@@ -13,8 +13,8 @@ Before running the application, ensure you have the following:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/vaishnavi477/Project-ChatGPT-ChatBot-using-OpenAI-and-Streamlit.git
-   cd chatbot
+   git clone https://github.com/vaishnavi477/Machine-Learning.git
+   cd ChatGPT - ChatBot using OpenAI API and Streamlit/Main Code/
    ```
 
 2. Create and activate a virtual environment:
