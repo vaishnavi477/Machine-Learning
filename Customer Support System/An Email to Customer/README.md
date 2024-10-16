@@ -28,6 +28,7 @@ This project is a customer support system that generates customer comments, emai
    ```
 
 3. Install the required Python packages:
+   
    requirements.txt includes
    Flask==2.2.2     # Replace with latest version
    openai==0.27.0
@@ -36,12 +37,12 @@ This project is a customer support system that generates customer comments, emai
    pip install -r requirements.txt
    ```
 
-4. Create a `.env` file in the root directory of the project and add your OpenAI API key:
+5. Create a `.env` file in the root directory of the project and add your OpenAI API key:
    ```
    OPENAI_API_KEY=your_openai_api_key # Replace with your api key
    ```
 
-5. Run the `.env` file:
+6. Run the `.env` file:
    ```bash
    source /.env
    ```
