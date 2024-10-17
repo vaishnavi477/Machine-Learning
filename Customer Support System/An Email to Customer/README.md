@@ -1,4 +1,4 @@
-# Customer Support System
+# Customer Support System - An Email to Customer
 
 ## Overview
 This project is a customer support system that generates customer comments, email subjects, summaries, and emails based on product input using OpenAI GPT models. It also includes functionality for sentiment analysis and translation of the generated content into different languages.
