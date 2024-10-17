@@ -1,0 +1,8 @@
+customer_support_system/An Email to Customer/
+│
+├── app.py                  # Main Flask application
+├── .env                    # Environment variables (API Key)
+├── requirements.txt        # Project dependencies
+├── templates/
+│   └── index.html          # HTML template for the UI
+├── products.py             # List of allowed products
