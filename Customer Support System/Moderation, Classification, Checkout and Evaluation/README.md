@@ -41,7 +41,7 @@ Step 1: Clone the repository
 
 ```bash
 git clone https://github.com/yourusername/customer-support-system.git
-cd customer-support-system/
+cd Customer Support System/Moderation, Classification, Checkout and Evaluation
 ```
 
 Step 2. Create and activate a virtual environment:
