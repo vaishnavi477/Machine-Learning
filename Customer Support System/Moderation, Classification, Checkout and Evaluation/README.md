@@ -88,13 +88,13 @@ Step 55. Run the `.env` file:
 
 2. Open your browser and go to the local server link (usually http://127.0.0.1:5000/) to interact with the chatbot. Then do the following:
 
-    Select a Product: Choose a product from the dropdown list.
-    Select Language: Choose the language for translating the comment (if needed).
-    Generate Comment: Click the 'Generate Comment' button to create a customer review.
-    Ask a Question: Input a question about the generated comment and submit to get a response.
-    Check Moderation and Prompt Injection: View moderation and prompt injection results for the question asked.
-    Chain of Thoughts: Get the response about the question asked with proper reasoning.
-    Check Output: Check if output is factual or non factual.
+    1. Select a Product: Choose a product from the dropdown list.
+    2. Select Language: Choose the language for translating the comment (if needed).
+    3. Generate Comment: Click the 'Generate Comment' button to create a customer review.
+    4. Ask a Question: Input a question about the generated comment and submit to get a response.
+    5. Check Moderation and Prompt Injection: View moderation and prompt injection results for the question asked.
+    6. Chain of Thoughts: Get the response about the question asked with proper reasoning.
+    7. Check Output: Check if output is factual or non factual.
 
 3. Run the python files:
     ```bash
