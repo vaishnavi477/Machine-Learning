@@ -40,8 +40,8 @@ Make sure you have the following installed:
 Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/vaishnavi477/Machine-Learning.git
-cd Customer Support System/Moderation, Classification, Checkout and Evaluation/
+git clone https://github.com/yourusername/customer-support-system.git
+cd customer-support-system/
 ```
 
 Step 2. Create and activate a virtual environment:
@@ -102,10 +102,14 @@ Step 55. Run the `.env` file:
     python3 evaluation_part_2.py
     ```
 
+## Contact
+For any queries, feel free to reach out to the project maintainer at vaishnavigpatil21640@gmail.com.
 
+## Screenshot of execution results
 
-
-
-
-
-
+![alt text](Execution_1.png)
+![alt text](Execution_2.png)
+![alt text](Execution_3.png)
+![alt text](Execution_4.png)
+![alt text](Execution_5.png)
+![alt text](Execution_6.png)
