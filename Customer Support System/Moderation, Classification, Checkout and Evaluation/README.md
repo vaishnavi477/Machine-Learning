@@ -40,8 +40,8 @@ Make sure you have the following installed:
 Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/customer-support-system.git
-cd customer-support-system/
+git clone https://github.com/vaishnavi477/Machine-Learning.git
+cd Customer Support System/Moderation, Classification, Checkout and Evaluation/
 ```
 
 Step 2. Create and activate a virtual environment:
