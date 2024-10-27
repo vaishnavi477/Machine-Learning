@@ -23,7 +23,7 @@ This project is a customer support system that generates customer comments, emai
 
 2. Create and activate a virtual environment:
    ```bash
-   python -m venv venv
+   python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
