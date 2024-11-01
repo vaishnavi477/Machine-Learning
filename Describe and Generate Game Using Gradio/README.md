@@ -68,7 +68,7 @@ This `README.md` file now includes the steps for creating and activating a virtu
 
 ## Screenshots of execution
 
-![alt text](image.png)
-![alt text](image-1.png)
-![alt text](image-2.png)
-![alt text](image-3.png)
+![alt text](Execution_1.png)
+![alt text](Execution_2.png)
+![alt text](Execution_3.png)
+![alt text](Execution_4.png)
