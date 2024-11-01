@@ -1,0 +1,8 @@
+describe-and-generate/
+│
+├── app.py                     # Main application code
+├── Audios/                    # Directory to save generated audio files
+│   └── generated_audio.wav    # Example generated audio file
+├── .env                       # Environment variables file
+├── requirements.txt           # Python package dependencies
+└── README.md                  # Project documentation
