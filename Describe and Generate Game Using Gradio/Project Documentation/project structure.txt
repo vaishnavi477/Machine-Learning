@@ -1,4 +1,4 @@
-describe-and-generate/
+describe-and-generate game using gradio/
 │
 ├── app.py                     # Main application code
 ├── Audios/                    # Directory to save generated audio files
