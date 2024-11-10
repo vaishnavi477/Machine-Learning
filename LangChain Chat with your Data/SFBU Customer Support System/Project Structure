@@ -1,0 +1,11 @@
+SFBU-Customer-Support-System/
+│
+├── docs/
+│   └── cs229_lectures/
+│       └── sfbu-2024-2025-university-catalog-8-20-2024.pdf
+│
+├── temp.pdf                            # Temporary uploaded PDF (generated during file upload)
+├── SFBU_Customer_Support.py            # Main Python script to run the chatbot
+├── .env                                # Store your OpenAI API key
+├── README.md                           # Project documentation
+└── requirements.txt                    # Project dependencies
