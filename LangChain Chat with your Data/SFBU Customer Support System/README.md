@@ -1,4 +1,4 @@
-# LangChain Chat with your Data: text - Customer Support System
+# LangChain Chat with your Data: text - SFBU Customer Support System
 
 This project demonstrates a Customer Support Chatbot built using Retrieval Augmented Generation (RAG) with OpenAI’s GPT model and a vectorstore (Chroma) for efficient document retrieval. The chatbot is designed to answer questions based on the contents of uploaded documents, such as PDFs, with a conversational interface.
 
