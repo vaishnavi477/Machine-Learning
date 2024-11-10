@@ -1,0 +1,13 @@
+├── docs/
+│   ├── cs229_lectures/
+│   │   ├── sfbu-2024-2025-university-catalog-8-20-2024_1.pdf
+│   │   ├── sfbu-2024-2025-university-catalog-8-20-2024_2.pdf
+│   │   ├── sfbu-2024-2025-university-catalog-8-20-2024_3.pdf
+│   │   └── sfbu-2024-2025-university-catalog-8-20-2024.pdf
+│   ├── chroma/                          # Directory for storing vector database (Chroma)
+│   └── youtube/                         # Directory for storing YouTube transcriptions or related files
+├── .env                                 # Store OpenAI API Key and any other environment variables
+├── .gitignore                           # Git ignore file to exclude unnecessary files
+├── requirements.txt                     # Dependencies for the project
+├── Vectorstores_and_Embedding.py        # The main Python script (your provided code)
+└── README.md                            # Project description and setup guide
