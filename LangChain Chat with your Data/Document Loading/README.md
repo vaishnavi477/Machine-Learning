@@ -1,4 +1,4 @@
-# Document Loading for Retrieval-Augmented Generation (RAG)
+# LangChain Chat with your Data: Document Loading 
 
 This project demonstrates the process of loading and processing documents from various sources, such as PDFs, YouTube transcripts, web pages, and Notion pages. The content from these sources is broken down into smaller, manageable chunks, optimized for quick retrieval, and used for answering queries based on specific document content.
 
