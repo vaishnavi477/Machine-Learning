@@ -1,0 +1,9 @@
+document_loading/
+├── docs/
+│   ├── cs229_lectures/          # PDF documents
+│   ├── youtube/                 # YouTube video transcripts
+│   ├── Notion_DB/               # Notion documents (Markdown)
+├── document_loading.py          # Main script for loading and processing documents
+├── .env                         # Environment variable file for API keys
+├── requirements.txt             # List of required Python packages
+├── README.md                    # Project overview and instructions
