@@ -1,4 +1,4 @@
-### Drug Malady Classification using OpenAI GPT Fine-Tuning
+#### Drug Malady Classification using OpenAI GPT Fine-Tuning
 
 This project uses OpenAI's GPT model to classify the medical maladies associated with various drugs based on a given dataset of drug names and their corresponding maladies.
 
