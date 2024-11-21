@@ -7,7 +7,7 @@ This project uses OpenAI's GPT model to classify the medical maladies associated
 1. Clone the repository or download the project files.
 ```bash
 git clone https://github.com/vaishnavi477/Machine-Learning.git
-cd Generative AI/Fine-Tuning
+cd Generative AI/Drug Classification Fine Tuning OpenAI
 ```
 
 2. Install the required Python libraries by running:
@@ -50,9 +50,6 @@ python3 Fine_Tuning_2000_Drugs.py
 
 ### 4. Screenshot of execution results
 
-
-
-ug_malady.py:
 
 
 
