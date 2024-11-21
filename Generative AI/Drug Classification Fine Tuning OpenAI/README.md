@@ -48,9 +48,6 @@ This project includes a Python script that will:
 python3 Fine_Tuning_2000_Drugs.py
 ```
 
-### 4. Screenshot of execution results
-
-
 
 
 
