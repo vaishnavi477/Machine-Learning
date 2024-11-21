@@ -1,0 +1,8 @@
+Fine-Tuning-2000-Drugs/
+│
+├── Fine_Tuning_2000_Drugs.py         # Main Python script for fine-tuning
+├── Medicine_description.xlsx         # Excel dataset containing drug names and maladies
+├── drug_malady_chat_data.jsonl       # JSONL file for training the model (generated)
+├── .env                              # Environment variables file for storing OpenAI API key
+├── requirements.txt                  # Dependencies for the project
+└── README.md                         # Project documentation
