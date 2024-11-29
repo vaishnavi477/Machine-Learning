@@ -1,0 +1,8 @@
+Google TTS/
+│
+├── Google_TTS.py               # Main Python file to run the application
+├── requirements.txt           	# List of Python dependencies
+├── .env                        # Environment variables file (contains OpenAI API key)
+├── README.md                   # Project documentation
+├── audio.m4a                   # Input audio file (for transcription)
+└── response_openai.mp3			# Output mp3 file (transcripted speech)
