@@ -18,7 +18,7 @@ gtts==2.3.1
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/vaishnavi477/AI-Based Alexa/Real-time Speech-to-Text-to-Speech.git
+   git clone https://github.com/vaishnavi477/Machine-Learning/AI-Based Alexa/Real-time Speech-to-Text-to-Speech.git
    cd Google TTS
 
 2. Install the required dependencies:
