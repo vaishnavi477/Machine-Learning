@@ -1,0 +1,7 @@
+Flask==2.3.3
+openai==0.27.9
+python-dotenv==1.0.0
+langchain==0.0.324
+chromadb==0.4.8
+PyPDF2==3.0.1
+Werkzeug==2.3.7

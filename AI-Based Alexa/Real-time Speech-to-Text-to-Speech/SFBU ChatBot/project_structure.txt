@@ -1,0 +1,12 @@
+SFBU_ChatBot/
+├── SFBU_ChatBot.py
+├── templates/
+│   └── index.html
+├── docs/
+│   ├── cs229_lectures/  # PDF files go here
+│   └── chroma/          # ChromaDB storage
+├── temp_audio_input.wav  # Temporary audio input
+├── response_audio.mp3    # Generated audio response
+├── .env                  # Environment variables (e.g., API key)
+├── requirements.txt
+├── README.md
