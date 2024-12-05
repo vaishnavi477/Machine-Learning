@@ -48,6 +48,6 @@ The SFBU ChatBot is a Flask-based AI-powered web application that:
 ## File Structure
 
     SFBU_ChatBot.py: Backend application logic.
-    index.html: Frontend for the chatbot UI.
+    templates/index.html: Frontend for the chatbot UI.
     docs/cs229_lectures/: Directory for lecture PDFs.
     docs/chroma/: Storage for vector embeddings.
