@@ -17,7 +17,7 @@ app = Flask(__name__)
 run_with_ngrok(app)  # Automatically starts ngrok
 
 # Load YOLOv8 trained model - Vaishnavi - 180 epoch
-model = YOLO('/content/drive/MyDrive/retail_product_checkout_validation_filtered/detect_250_epochs/train/weights/best.pt')
+model = YOLO('/models/best.pt')
 
 # Load billing data
 billing_data = pd.read_csv('/content/drive/MyDrive/Reduce_new_data/product_prices.csv')
