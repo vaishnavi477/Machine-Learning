@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Self-Checkout</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
+    .checkout-container {
+      display: flex;
+      gap: 30px;
+      max-width: 900px;
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      padding: 30px;
+    }
+
+    .left-panel {
+      flex: 1;
+      text-align: center;
+    }
+
+    .right-panel {
+      flex: 1;
+      background: #fff;
+    }
+
+    .upload-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      border: 2px dashed #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .upload-area:hover {
+      border-color: #ff9900;
+    }
+
+    .upload-area img {
+      width: 80px;
+      opacity: 0.7;
+    }
+
+    .upload-area p {
+      margin-top: 10px;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .checkout-btn {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #ff9900;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background-color: #e88a00;
+    }
+
+    .bill-section {
+      margin-top: 20px;
+    }
+     .bill-section h2 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .bill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bill-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .total {
+      font-size: 20px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .spinner {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <div class="left-panel">
+      <h1>Smart Checkout</h1>
+      <label for="fileInput" class="upload-area" id="uploadArea">
+        <img src="https://img.icons8.com/ios/100/upload--v1.png" alt="Upload" />
+        <p>Click to Upload Product Image</p>
+      </label>
+      <input type="file" id="fileInput" class="file-input" accept="image/*"/>
+      <button class="checkout-btn" id="uploadBtn">Process & Generate Bill</button>
+    </div>
+    
+    <div class="right-panel">
+      <h2>Bill Summary</h2>
+      <div class="bill-section">
+        <ul class="bill-list" id="billList">
+          <li>No products detected yet.</li>
+        </ul>
+        <div class="total">
+          <span>Total</span>
+          <span id="totalPrice">$0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const uploadArea = document.getElementById("uploadArea");
+    const uploadBtn = document.getElementById("uploadBtn");
+    const billList = document.getElementById("billList");
+    const totalPriceEl = document.getElementById("totalPrice");
+    let selectedFile;
+
+    fileInput.addEventListener("change", () => {
+      selectedFile = fileInput.files[0];
+      if (selectedFile) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          uploadArea.innerHTML = `<img src="${e.target.result}" style="width: 100%; border-radius: 10px;">`;
+        };
+        reader.readAsDataURL(selectedFile);
+      }
+    });
+
+    uploadBtn.addEventListener("click", async () => {
+      if (!selectedFile) {
+        alert("Please upload an image first.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("image", selectedFile);
+
+      billList.innerHTML = "<li>Processing...</li>";
+
+      try {
+        const response = await fetch("/upload", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (!data.bill || data.bill.length === 0) {
+          billList.innerHTML = "<li>No products detected.</li>";
+          totalPriceEl.textContent = "$0.00";
+          return;
+        }
+
+        let itemsHTML = "";
+        data.bill.forEach(item => {
+          itemsHTML += `
+            <li class="bill-item">
+              <span>${item.Product}</span>
+              <span>$${item.Price.toFixed(2)}</span>
+            </li>`;
+        });
+
+        billList.innerHTML = itemsHTML;
+        totalPriceEl.textContent = `$${data.total_price.toFixed(2)}`;
+
+      } catch (error) {
+        billList.innerHTML = `<li style="color:red;">Error: ${error.message}</li>`;
+      }
+    });
+  </script>
+</body>
+</html>
