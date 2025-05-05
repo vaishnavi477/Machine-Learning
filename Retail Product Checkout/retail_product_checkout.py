@@ -20,7 +20,7 @@ run_with_ngrok(app)  # Automatically starts ngrok
 model = YOLO('/models/best.pt')
 
 # Load billing data
-billing_data = pd.read_csv('/content/drive/MyDrive/Reduce_new_data/product_prices.csv')
+billing_data = pd.read_csv('product_prices.csv')
 billing_data.columns = ['Product', 'Price']
 
 # Start ngrok
