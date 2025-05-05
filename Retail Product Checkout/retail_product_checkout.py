@@ -11,6 +11,7 @@ from collections import Counter
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from io import BytesIO
+from ultralytics import YOLO
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -28,12 +29,12 @@ public_url = ngrok.connect(5000)
 print(f"Public URL: {public_url}")
 
 # Ensure upload directory exists
-UPLOAD_FOLDER = "/content/uploads"
+UPLOAD_FOLDER = "/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/')
 def home():
-    return send_file('/content/drive/MyDrive/Reduce_new_data/webpage_design.html')
+    return send_file('/templates/webpage_design.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
@@ -83,15 +84,15 @@ def upload_image():
         return jsonify({'error': str(e)}), 500
 
 
-@app.route('/payment')
-def payment_page():
-    amount = request.args.get('amount', '0.00')
-    return send_file('/content/drive/MyDrive/Reduce_new_data/payment.html')
+# @app.route('/payment')
+# def payment_page():
+#     amount = request.args.get('amount', '0.00')
+#     return send_file('/content/drive/MyDrive/Reduce_new_data/payment.html')
 
 
-@app.route('/payment/success', methods=['GET'])
-def payment_success():
-    return send_file('/content/drive/MyDrive/Reduce_new_data/success.html')
+# @app.route('/payment/success', methods=['GET'])
+# def payment_success():
+#     return send_file('/content/drive/MyDrive/Reduce_new_data/success.html')
 
 @app.route('/download_bill', methods=['POST'])
 def download_bill():
