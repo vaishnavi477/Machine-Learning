@@ -28,7 +28,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/')
 def home():
-    return send_file(os.path.join(BASE_DIR, 'webpage_design.html'))
+    return send_file(os.path.join(BASE_DIR, 'templates/webpage_design.html'))
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
@@ -81,12 +81,12 @@ def upload_image():
 @app.route('/payment')
 def payment_page():
     amount = request.args.get('amount', '0.00')
-    return send_file(os.path.join(BASE_DIR, 'payment.html'))
+    return send_file(os.path.join(BASE_DIR, 'templates/payment.html'))
 
 
 @app.route('/payment/success', methods=['GET'])
 def payment_success():
-    return send_file(os.path.join(BASE_DIR, 'success.html'))
+    return send_file(os.path.join(BASE_DIR, 'templates/success.html'))
 
 @app.route('/download_bill', methods=['POST'])
 def download_bill():
