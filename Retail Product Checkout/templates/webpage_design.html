@@ -117,13 +117,48 @@
       font-weight: 700;
       display: flex;
       justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .spinner {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #payBtn {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-container">
+    <div class="left-panel">
+      <h1>Smart Checkout</h1>
+      <label for="fileInput" class="upload-area" id="uploadArea">
+        <img src="https://img.icons8.com/ios/100/upload--v1.png" alt="Upload" />
+        <p>Click to Upload Product Image</p>
+      </label>
+      <input type="file" id="fileInput" class="file-input" accept="image/*"/>
+      <button class="checkout-btn" id="uploadBtn">Process & Generate Bill</button>
+    </div>
+    
+    <div class="right-panel">
+      <h2>Bill Summary</h2>
+      <div class="bill-section">
         <ul class="bill-list" id="billList">
           <li>No products detected yet.</li>
         </ul>
         <div class="total">
           <span>Total</span>
           <span id="totalPrice">$0.00</span>
+          
         </div>
+        <button class="checkout-btn" id="payBtn">
+            Proceed to Payment
+        </button>
+        <button class="checkout-btn" id="downloadBtn" style="margin-top: 10px; display: none;">
+          Download Bill (PDF)
+        </button>
       </div>
     </div>
   </div>
@@ -134,6 +169,8 @@
     const uploadBtn = document.getElementById("uploadBtn");
     const billList = document.getElementById("billList");
     const totalPriceEl = document.getElementById("totalPrice");
+    const payBtn = document.getElementById("payBtn");
+    const downloadBtn = document.getElementById("downloadBtn");
     let selectedFile;
 
     fileInput.addEventListener("change", () => {
@@ -141,7 +178,7 @@
       if (selectedFile) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          uploadArea.innerHTML = `<img src="${e.target.result}" style="width: 100%; border-radius: 10px;">`;
+          uploadArea.innerHTML = `<img src="${e.target.result}" style="width: 100%; height: 250px; border-radius: 10px;">`;
         };
         reader.readAsDataURL(selectedFile);
       }
@@ -173,21 +210,59 @@
         }
 
         let itemsHTML = "";
+        let totalItems = 0;
         data.bill.forEach(item => {
+          totalItems += item.Quantity;
           itemsHTML += `
             <li class="bill-item">
-              <span>${item.Product}</span>
-              <span>$${item.Price.toFixed(2)}</span>
+              <span>${item.Product} (x ${item.Quantity})</span>
+              <span>$${item.Total.toFixed(2)}</span>
             </li>`;
         });
 
+        itemsHTML += `
+        <li class="bill-item total-summary">
+          <strong>Total Items: ${totalItems}</strong>
+          <strong>SubTotal: $${data.total_price.toFixed(2)}</strong>
+        </li>`;
+
         billList.innerHTML = itemsHTML;
         totalPriceEl.textContent = `$${data.total_price.toFixed(2)}`;
+        payBtn.style.display = 'block';  // Show payment button
+
+        payBtn.onclick = () => {
+          // Redirect to a dummy payment page or your actual payment provider
+          window.location.href = `/payment?amount=${data.total_price.toFixed(2)}`;
+        };
+
+        downloadBtn.style.display = 'block';
+
+        downloadBtn.onclick = async () => {
+          const response = await fetch("/download_bill", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              bill: data.bill,
+              total_price: data.total_price,
+              total_items: totalItems
+            })
+          });
+
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "final_bill.pdf";
+          a.click();
+        };
 
       } catch (error) {
         billList.innerHTML = `<li style="color:red;">Error: ${error.message}</li>`;
       }
     });
+    
   </script>
 </body>
 </html>
