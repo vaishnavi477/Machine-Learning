@@ -14,7 +14,7 @@ from ultralytics import YOLO # type: ignore
 # Initialize Flask app
 app = Flask(__name__)
 
-# Load YOLOv8 trained model - Vaishnavi - 180 epoch
+# Load YOLOv8 trained model
 model = YOLO('models/best.pt')
 
 # Load billing data
