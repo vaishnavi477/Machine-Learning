@@ -1,40 +1,34 @@
 from flask import Flask, request, jsonify, send_file
-from flask_ngrok import run_with_ngrok
-import cv2
+import cv2 # type: ignore
 import numpy as np
 import pandas as pd
-import torch
-from pyngrok import ngrok
+import torch # type: ignore
 import os
 from flask import send_from_directory
 from collections import Counter
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter # type: ignore
+from reportlab.pdfgen import canvas # type: ignore
 from io import BytesIO
-from ultralytics import YOLO
+from ultralytics import YOLO # type: ignore
 
 # Initialize Flask app
 app = Flask(__name__)
-run_with_ngrok(app)  # Automatically starts ngrok
 
-# Load YOLOv8 trained model 
-model = YOLO('/models/best.pt')
+# Load YOLOv8 trained model - Vaishnavi - 180 epoch
+model = YOLO('models/best.pt')
 
 # Load billing data
 billing_data = pd.read_csv('product_prices.csv')
 billing_data.columns = ['Product', 'Price']
 
-# Start ngrok
-public_url = ngrok.connect(5000)
-print(f"Public URL: {public_url}")
-
 # Ensure upload directory exists
-UPLOAD_FOLDER = "/uploads"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(BASE_DIR, 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/')
 def home():
-    return send_file('/templates/webpage_design.html')
+    return send_file(os.path.join(BASE_DIR, 'webpage_design.html'))
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
@@ -43,7 +37,7 @@ def upload_image():
 
     try:
         file = request.files['image']
-        image_path = os.path.join(UPLOAD_FOLDER, file.filename)
+        image_path = os.path.join(UPLOAD_FOLDER, file.filename) # type: ignore
         file.save(image_path)
 
         img = cv2.imread(image_path)
@@ -84,15 +78,15 @@ def upload_image():
         return jsonify({'error': str(e)}), 500
 
 
-# @app.route('/payment')
-# def payment_page():
-#     amount = request.args.get('amount', '0.00')
-#     return send_file('/content/drive/MyDrive/Reduce_new_data/payment.html')
+@app.route('/payment')
+def payment_page():
+    amount = request.args.get('amount', '0.00')
+    return send_file(os.path.join(BASE_DIR, 'payment.html'))
 
 
-# @app.route('/payment/success', methods=['GET'])
-# def payment_success():
-#     return send_file('/content/drive/MyDrive/Reduce_new_data/success.html')
+@app.route('/payment/success', methods=['GET'])
+def payment_success():
+    return send_file(os.path.join(BASE_DIR, 'success.html'))
 
 @app.route('/download_bill', methods=['POST'])
 def download_bill():
@@ -141,4 +135,5 @@ def download_bill():
 
 if __name__ == '__main__':
     print("Server is starting...")
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
